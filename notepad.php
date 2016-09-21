@@ -17,7 +17,6 @@
   </div>
 
 <?php
-  echo $_SESSION["name"];
   include 'connect.php';
 
   if(isset($_POST['submit'])) {

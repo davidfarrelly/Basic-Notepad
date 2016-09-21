@@ -13,6 +13,7 @@
       <input type="text" name="username" class="input" placeholder="Your Username!"><br>
       <input type="password" name="pass" class="input" placeholder="Your Password!"><br>
       <input type="submit" name="submit" value="Log in">
+      <input type="submit" name="register" value="Register">
     </form>
   </div>
 
@@ -35,6 +36,9 @@
     else {
       echo "Incorrect username or password. Please try again!";
     }
+  }
+  if(isset($_POST['register'])) {
+    header('Location: register.php');
   }
 ?>
 </body>
