@@ -1,6 +1,5 @@
 <?php
-// Start the session
-session_start();
+  session_start();
 ?>
 <html>
 <head>
@@ -17,33 +16,24 @@ session_start();
     </form>
   </div>
 
-  <?php
-
-  $servername = "servername_here";
-  $username = "username_here";
-  $password = "npassword_here";
-  $dbname = "db_name_here";
-
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
+<?php
+  echo $_SESSION["name"];
+  include 'connect.php';
 
   if(isset($_POST['submit'])) {
     $note=$_POST['note'];
     $date = date("Y/m/d");
     $name = $_POST['note_name'];
-      //$sql = "SELECT username,password FROM user_details WHERE username='$name' AND password='$pass'";
-      $sql = "INSERT INTO davidf (note_name, note_body, creation_date) VALUES ('$name','$note','$date')";
+    $user = $_SESSION["name"];
+    //$sql = "SELECT username,password FROM user_details WHERE username='$name' AND password='$pass'";
+    $sql = "INSERT INTO $user (note_name, note_body, creation_date) VALUES ('$name','$note','$date')";
 
 
-      if ($conn->query($sql) === TRUE) {
-          echo "New record created successfully";
-      } else {
-          echo "Error: " . $sql . "<br>" . $conn->error;
-      }
+    if ($conn->query($sql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
   }
 
   ?>
