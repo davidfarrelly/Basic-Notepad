@@ -10,10 +10,10 @@ session_start();
 
 <body>
   <div class="container">
-    <form id="login_form" method="post" action="register.php">
-      <input type="text" name="username" class="input" placeholder="Your Username!"><br>
-      <input type="password" name="pass" class="input" placeholder="Your Password!"><br>
-      <input type="submit" name="submit" value="Register">
+    <form id="register_form" method="post" action="register.php">
+      <input type="text" name="username" class="input" placeholder="Your Username!" required><br>
+      <input type="password" name="pass" class="input" placeholder="Your Password!" required><br>
+      <input type="submit" name="submit" value="Register" class="action-btn">
     </form>
   </div>
 
